@@ -23,18 +23,19 @@ const Statistics = ({ good, neutral, bad}) => {
 
   return (
     <>
-      <Stats text={"good"} count={good} />
-      <Stats text={"neutral"} count={neutral} />
-      <Stats text={"bad"} count={bad} />
-      <Stats name={"Total"} count={total} />
-      <Stats name={"Average"} count={average} />
-      <Stats name={"Positive"} count={good / total * 100 + " %"} />
+      <StatisticLine text={"good"} count={good} />
+      <StatisticLine text={"neutral"} count={neutral} />
+      <StatisticLine text={"bad"} count={bad} />
+      <StatisticLine name={"Total"} count={total} />
+      <StatisticLine name={"Average"} count={average} />
+      <StatisticLine name={"Positive"} count={good / total * 100 + " %"} />
     </>
     
   )
 }
 
-const Stats = ({ text, count}) => {
+
+const StatisticLine = ({ text, count}) => {
   return (
     <p>{text} {count}</p>
   )

@@ -12,6 +12,14 @@ const Statistics = ({ good, neutral, bad}) => {
   const total = good + neutral + bad
   const average = (good * 1) + (bad * - 1 ) / total
 
+  if (total === 0) {
+    return (
+      <div>
+        <p>No Feedback Given</p>
+      </div>
+    )
+  }
+
 
   return (
     <>
@@ -37,7 +45,6 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  const [total, setTotal] = useState(0)
   const [average, setAverage] = useState(0)
 
 const handleClickGood = () => {

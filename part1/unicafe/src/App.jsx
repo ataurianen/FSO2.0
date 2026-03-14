@@ -22,14 +22,16 @@ const Statistics = ({ good, neutral, bad}) => {
 
 
   return (
-    <>
-      <StatisticLine text={"good"} count={good} />
-      <StatisticLine text={"neutral"} count={neutral} />
-      <StatisticLine text={"bad"} count={bad} />
-      <StatisticLine name={"Total"} count={total} />
-      <StatisticLine name={"Average"} count={average} />
-      <StatisticLine name={"Positive"} count={good / total * 100 + " %"} />
-    </>
+    <table>
+      <tbody>
+        <StatisticLine text={"good"} count={good} />
+        <StatisticLine text={"neutral"} count={neutral} />
+        <StatisticLine text={"bad"} count={bad} />
+        <StatisticLine text={"Total"} count={total} />
+        <StatisticLine text={"Average"} count={average.toFixed(2)} />
+        <StatisticLine text={"Positive"} count={(good / total * 100).toFixed(2) + " %"} />
+      </tbody>  
+    </table>
     
   )
 }
@@ -37,7 +39,10 @@ const Statistics = ({ good, neutral, bad}) => {
 
 const StatisticLine = ({ text, count}) => {
   return (
-    <p>{text} {count}</p>
+    <tr>
+      <td>{text}</td>
+      <td>{count}</td>
+    </tr>
   )
 }
 
